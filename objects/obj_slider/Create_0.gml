@@ -26,6 +26,12 @@ x = x_pos + percent * length;
 sprite_index = spr_button;
 image_xscale = 1; //reset xscale
 
+//apply defaults
+if (instance_target != noone)
+{
+	variable_instance_set(instance_target, variable_target, current_value)
+}
+
 function draw_slider()
 {
 	//draw line

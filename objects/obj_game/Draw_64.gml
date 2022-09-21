@@ -7,8 +7,10 @@ switch (room) {
 	case 2: str = "3. Waves"; break;
 }
 
-var time = current_time / 1000;
-str = str + " " + string(time) + "ms";
+var time = string(current_time / 1000) + "ms";
+draw_set_halign(fa_right);
+draw_text(display_get_gui_width(), y, time);
+draw_set_halign(fa_left);
 
 var y1 = display_get_gui_height();
 draw_set_valign(fa_bottom);
