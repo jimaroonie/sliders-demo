@@ -28,14 +28,22 @@ if (restart)
 var next = keyboard_check_pressed(ord("N"));
 var back = keyboard_check_pressed(ord("B"));
 
-if (back && room != room_first) 
+if (back) 
 {
-	room_goto_previous();
+	if room != room_first {
+		room_goto_previous();
+	} else {
+		room_goto(room_last);
+	}
 }
 
-if (next && room != room_last)
+if (next)
 {
-	room_goto_next();
+	if room != room_last {
+		room_goto_next();
+	} else {
+		room_goto(room_first);
+	}
 }
 
 #endregion
@@ -76,6 +84,7 @@ if (!window_get_fullscreen() && !is_html5)
 
 #endregion
 
+//activate/deactivate sliders
 if (keyboard_check_pressed(vk_tab)) {
 	if (active) {
 		instance_deactivate_object(obj_slider);
@@ -84,4 +93,11 @@ if (keyboard_check_pressed(vk_tab)) {
 		instance_activate_object(obj_slider);
 		active = true;
 	}
+}
+
+//jump to specific room
+switch (keyboard_key) {
+	case ord("1"): room_goto(0); break;
+	case ord("2"): room_goto(1); break;
+	case ord("3"): room_goto(2); break;
 }

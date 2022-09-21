@@ -4,6 +4,7 @@ global.timer = 2000; //milliseconds
 
 view_width = 640;
 view_height = 480;
+window_scale = 1;
 
 is_html5 = (os_browser != browser_not_a_browser);
 window_scale = (is_html5) ? 1 : 2;
