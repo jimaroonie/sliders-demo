@@ -1,0 +1,1 @@
+/// @description double click timer
